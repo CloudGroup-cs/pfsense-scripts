@@ -238,11 +238,12 @@ else
   if [ "$PFSENSE_VERSION" = "2.7.2" ]; then
     certctl rehash
     env ASSUME_ALWAYS_YES=yes pfSense-upgrade -y >> $LOG_POST
+  else
+    pkg update
+    pkg install -y pfSense-pkg-zabbix-agent6
+    # Cleanup: run once
+    rm -f /root/post_upgrade_check.sh
   fi
-  pkg update
-  pkg install -y pfSense-pkg-zabbix-agent6
-  # Cleanup: run once
-  rm -f /root/post_upgrade_check.sh
 fi
 EOF
 
