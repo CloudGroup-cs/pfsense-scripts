@@ -235,7 +235,7 @@ if [ $FAIL -ne 0 ]; then
 else
   echo "Validation successful" >> $LOG_POST
   PFSENSE_VERSION=$(cat /etc/version)
-  if [ "$PFSENSE_VERSION" = "2.7.2" ]; then
+  if [ "$PFSENSE_VERSION" = "2.7.2-RELEASE" ]; then
     certctl rehash
     env ASSUME_ALWAYS_YES=yes pfSense-upgrade -y >> $LOG_POST
   else
