@@ -240,7 +240,7 @@ else
     env ASSUME_ALWAYS_YES=yes pfSense-upgrade -y >> $LOG_POST
   else
     pkg update
-    pkg install -y pfSense-pkg-zabbix-agent6
+    pkg install -y pfSense-pkg-zabbix-agent6 >> $LOG_POST
     # Cleanup: run once
     rm -f /root/post_upgrade_check.sh
   fi
